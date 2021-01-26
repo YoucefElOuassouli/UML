@@ -1,0 +1,47 @@
+<router-outlet></router-outlet>
+
+
+<table class="table table-striped table-bordered">
+    <thead>
+        <tr>
+            <th>
+                <div class="d-flex flex-row">
+                    <div style="padding-right: 10px;">Leaving time</div>
+                    <input [(ngModel)]="LeavingTimeFilter" style="width:200px;" class="form-control" (keyup)="FIlterFunc()" placeholder="Leaving Time">
+                </div>
+            </th>
+            <th>
+                <div class="d-flex flex-row">
+                    <div style="padding-right: 10px;">From</div>
+                    <input [(ngModel)]="FromFilter" style="width:200px;" class="form-control" (keyup)="FilterFuncFrom()" placeholder="From">
+                </div>
+            </th>
+            <th>
+                <div class="d-flex flex-row">
+                    <div style="padding-right: 10px;">To</div>
+                    <input [(ngModel)]="ToFilter" style="width:200px;" class="form-control" (keyup)="FilterFuncTo()" placeholder="To">
+                </div>
+            </th>
+            <th>Voyage Number</th>
+            <th>Train Number</th>
+            <th>Range</th>
+            <th>
+                <div class="d-flex flex-row">
+                    <div style="padding-right: 10px;">Date</div>
+                    <input [(ngModel)]="DateFilter" style="width:200px;" class="form-control" (keyup)="FilterFuncDate()" placeholder="Date">
+                </div>
+            </th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr *ngFor="let dataItem of VTList">
+            <td>{{dataItem.LeavingTime}}</td>
+            <td>{{dataItem.From}}</td>
+            <td>{{dataItem.To}}</td>
+            <td>{{dataItem.VoyageNumber}}</td>
+            <td>{{dataItem.TrainNumber}}</td>
+            <td>{{dataItem.type}}</td>
+            <td>{{dataItem.Date| date: 'dd/MM/yyyy'}}</td>
+        </tr>
+    </tbody>
+</table>
